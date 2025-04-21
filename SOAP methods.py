@@ -2,6 +2,7 @@ import datetime
 import flet as ft
 import requests
 import json
+import os
 
 
 def main(page: ft.Page):
@@ -12,8 +13,8 @@ def main(page: ft.Page):
     def authentication(e, u=url):
         u += '/api/login'
         auth = {
-            'login': 'online',
-            'password': '22Online!@CK'
+            'login': os.getenv('LOGIN_ONLINE'),
+            'password': os.getenv('PASSWORD_ONLINE')
         }
         resp = requests.post(u, data=auth, verify=False)
         return resp.json()['data']['access_token']
