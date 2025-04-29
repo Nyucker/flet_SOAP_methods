@@ -8,10 +8,10 @@ import os
 def main(page: ft.Page):
     page.theme_mode = 'dark'
     page.scroll = ft.ScrollMode.AUTO
-    url = 'https://gateway.amanat.systems'
+    url = os.getenv('URL')
 
     def authentication(e, u=url):
-        u += '/api/login'
+        u += os.getenv('U_LOGIN')
         auth = {
             'login': os.getenv('LOGIN_ONLINE'),
             'password': os.getenv('PASSWORD_ONLINE')
@@ -22,7 +22,7 @@ def main(page: ft.Page):
     def search_vehicles_function(e, u=url):
         search_vehicles_result_field.content.controls[0].value = 'Пошел процесс...'
         page.update()
-        u += '/api/esbd/call-method'
+        u += os.getenv('U_ESBD')
         method = {
             "methodName": "SearchVehicles",
             "params": {
@@ -44,7 +44,7 @@ def main(page: ft.Page):
             page.update()
 
     def set_client_function(e, u=url):
-        u += '/api/esbd/call-method'
+        u += os.getenv('U_ESBD')
 
         # if switch:
         #     pass
