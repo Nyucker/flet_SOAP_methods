@@ -29,10 +29,11 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    version='C:\\Users\\N4ACB~1.ZHA\\AppData\\Local\\Temp\\a4561c17-ee21-455c-b74f-15c495a2b1a5',
 )
